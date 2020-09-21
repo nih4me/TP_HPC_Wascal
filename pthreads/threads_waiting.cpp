@@ -39,7 +39,17 @@ int main () {
       }
    }
 
-   
+   // free attribute and wait for the other threads
+   pthread_attr_destroy(&attr);
+   for( i = 0; i < NUM_THREADS; i++ ) {
+      rc = pthread_join(threads[i], &status);
+      if (rc) {
+         cout << "Error:unable to join," << rc << endl;
+         exit(-1);
+      }
+      cout << "Main: completed thread id : " << i ;
+      cout << "  exiting with status :" << status << endl;
+   }
 
    cout << "Main: program exiting." << endl;
    pthread_exit(NULL);
