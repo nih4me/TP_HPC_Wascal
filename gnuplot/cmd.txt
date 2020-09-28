@@ -1,0 +1,33 @@
+# first plots
+gnuplot> plot exp(-x**2 / 2)
+
+# [minimum:maximum]
+gnuplot> plot [-4:4] exp(-x**2 / 2)
+
+# plot more than one function
+gnuplot> plot [t=-4:4] exp(-t**2 / 2), t**2 / 16
+
+# define function
+gnuplot> f(x) = exp(-x**2 / 2)
+gnuplot> plot [t=-4:4] f(t), t**2 / 16
+
+# plot data and add are labels to our axes and a title
+
+gnuplot> plot "data_file"
+gnuplot> set ylabel "Y label"
+gnuplot> set xlabel "X label"
+gnuplot> set title "Title of the plot"
+gnuplot> replot
+
+# You have to explicitly tell gnuplot to draw 
+# your graph somewhere else, like an image file. To do this
+
+gnuplot> set term gif
+gnuplot> set output ‘‘mygraph.gif’’
+gnuplot> replot
+
+# Others
+gnuplot> set grid
+
+# Including Error Bars
+gnuplot> plot "mydata.dat" title "" with yerrorbars

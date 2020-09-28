@@ -1,0 +1,4 @@
+set title "Plot from my program"
+set terminal x11
+plot 'test.dat'
+pause 100

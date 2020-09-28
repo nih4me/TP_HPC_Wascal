@@ -8,6 +8,7 @@ using namespace std;
 
 #define M 10000
 #define N 10000
+// 10000 * 10000 = 100 000 000
 #define NUM_THREADS 5
 
 struct thread_data {
@@ -30,7 +31,7 @@ void *initArray(void *threadarg) {
             c = c + 1;
         }
     }
-
+    
     cout << "Thread with ID = " << my_data->id << " : " << c << " Initializations" << endl;
 
     pthread_exit(NULL);
@@ -43,7 +44,7 @@ int main () {
    int rc;
    int i;
 
-   for( i = 0; i < NUM_THREADS; i++ ) {
+    for( i = 0; i < NUM_THREADS; i++ ) {
         
         data[i].id = i;
         data[i].startI = i * count;
@@ -54,7 +55,11 @@ int main () {
             cout << "Error:unable to create thread," << rc << endl;
             exit(-1);
         }
-   }
+    }
 
-   pthread_exit(NULL);
+    int randI = 1234
+    int randj = 5
+    cout << A[randI][randJ] << end;
+
+    pthread_exit(NULL);
 }
